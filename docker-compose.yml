@@ -15,7 +15,6 @@ services:
       - "./data/proxy/certs:/etc/nginx/certs:ro"
     networks:
      - default
-     - gogs_default
  
   nginx-gen:
     restart: always
@@ -43,5 +42,3 @@ services:
 networks:
     default: # this network (app2)
         driver: bridge
-    gogs_default: # external network (app1)
-        external: true
