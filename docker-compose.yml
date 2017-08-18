@@ -4,7 +4,6 @@ services:
   nginx:
     restart: always
     image: nginx
-    container_name: nginx
     ports:
       - "${HTTP_BIND:-0.0.0.0}:${HTTP_PORT:-80}:${HTTP_PORT:-80}"
       - "${HTTPS_BIND:-0.0.0.0}:${HTTPS_PORT:-443}:${HTTPS_PORT:-443}"
@@ -17,7 +16,6 @@ services:
   nginx-gen:
     restart: always
     image: jwilder/docker-gen
-    container_name: nginx-gen
     volumes:
       - "/var/run/docker.sock:/tmp/docker.sock:ro"
       - "./data/proxy/templates/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro"
@@ -28,7 +26,6 @@ services:
   letsencrypt-nginx-proxy-companion:
     restart: always
     image: jrcs/letsencrypt-nginx-proxy-companion
-    container_name: letsencrypt-nginx-proxy-companion
     volumes_from:
       - nginx
     volumes:
