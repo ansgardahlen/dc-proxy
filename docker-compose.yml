@@ -29,7 +29,7 @@ services:
     restart: always
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ${NGINX_FILES_PATH:-./data/proxy}/templates/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
+      - ${NGINX_FILES_PATH:-./data/proxy}/templates/:/etc/docker-gen/templates/:ro
     volumes_from:
       - nginx-web
     logging:
