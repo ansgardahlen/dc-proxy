@@ -32,7 +32,7 @@ if [ "$(wc -l .env | cut -f1 -d' ')" != "$(wc -l .env.sample | cut -f1 -d' ')" ]
 fi
 
 # 3. Download the latest version of nginx.tmpl
-curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > nginx.tmpl
+curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > ./data/proxy/templates/nginx.tmpl
 
 # 4. Update containers without downtime
 docker-compose up -d --no-deps --build nginx-web
