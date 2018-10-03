@@ -13,6 +13,14 @@ else
     exit 1
 fi
 
+#Prepare templates directory
+TEMPL=./data/proxy/templates/nginx.tmpl
+if [ ! -e $TEMPL ]; then
+#    echo "File $TEMPL does not exists"
+    mkdir -p $(dirname $TEMPL)
+    touch $TEMPL
+fi
+
 # 2. Create docker network
 docker network create $NETWORK
 
