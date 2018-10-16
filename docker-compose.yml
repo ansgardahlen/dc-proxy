@@ -16,7 +16,6 @@ services:
       - ${NGINX_FILES_PATH:-./data/proxy}/html:/usr/share/nginx/html
       - ${NGINX_FILES_PATH:-./data/proxy}/certs:/etc/nginx/certs:ro
       - ${NGINX_FILES_PATH:-./data/proxy}/htpasswd:/etc/nginx/htpasswd:ro
-      - ${NGINX_FILES_PATH:-./data/proxy}/certs/dhparam.pem:/etc/nginx/dhparam/dhparam.pem
     logging:
       options:
         max-size: ${NGINX_WEB_LOG_MAX_SIZE:-4m}
